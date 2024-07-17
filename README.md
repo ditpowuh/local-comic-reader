@@ -1,5 +1,8 @@
 # local-comic-reader
 
+#### python packages
+- flask (tested with 3.0.3)
+
 #### Can be used for comics, webtoons, manga, manhwa, manhua, etc.
 A simple Python web application used to read like any other sites - this is intended for when a comic is given as separate images and not as one single page.
 <br>
