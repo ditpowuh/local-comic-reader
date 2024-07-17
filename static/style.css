@@ -1,0 +1,32 @@
+body {
+  background-color: #111111;
+  color: #ffffff;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  background: #555555;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+button:hover {
+  background-color: #888888;
+}
+
+.wrapper {
+  text-align: center;
+}
