@@ -11,7 +11,6 @@ A simple Python web application used to read like any other sites - this is inte
 #### General Formula to Paths
 `resource/set[NUMBER OF SET]/[NUMBER OF COMIC]/[NUMBER OF IMAGE/PANEL].png`
 
-
 #### Example Comic Paths
 Comic 1 of Set 1
 <br>
