@@ -16,10 +16,10 @@ for i in range(len(sets)):
 
 def loadImages():
     directory = localPath + f"resources\\panels\\set{set}\\{index}"
-    imagePaths = os.listdir(directory)
+    imagePaths = sorted(os.listdir(directory), key = lambda imageFile: int(imageFile.split(".")[0]))
     content = ""
     for i in range(len(imagePaths)):
-        content = content + f"<img src=\"/resources/panels/set{set}/{index}/{imagePaths[i]}\"></img>"
+        content = content + f"<img src=\"/resources/panels/set{set}/{index}/{imagePaths[i]}\">"
     return content
 
 @app.route("/")
