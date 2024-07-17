@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template as renderHTML
 import os
 
-app = Flask(__name__, template_folder = "")
+app = Flask(__name__, template_folder = "", static_folder = "resources")
 
 localPath = os.getcwd() + "\\"
 
@@ -10,16 +10,16 @@ set = 1
 index = 1
 data = {}
 maxIndexOfSets = {}
-sets = os.listdir(localPath + "static\\resources")
+sets = os.listdir(localPath + "resources\\panels")
 for i in range(len(sets)):
-    maxIndexOfSets[str(i + 1)] = len(os.listdir(localPath + f"static\\resources\\set{i + 1}"))
+    maxIndexOfSets[str(i + 1)] = len(os.listdir(localPath + f"resources\\panels\\set{i + 1}"))
 
 def loadImages():
-    directory = localPath + f"static\\resources\\set{set}\\{index}"
+    directory = localPath + f"resources\\panels\\set{set}\\{index}"
     imagePaths = os.listdir(directory)
     content = ""
     for i in range(len(imagePaths)):
-        content = content + f"<img src=\"/static/resources/set{set}/{index}/{imagePaths[i]}\"></img>"
+        content = content + f"<img src=\"/resources/panels/set{set}/{index}/{imagePaths[i]}\"></img>"
     return content
 
 @app.route("/")
