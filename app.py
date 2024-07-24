@@ -1,10 +1,13 @@
 from flask import Flask
 from flask import render_template as renderHTML
 import os
+import sys
+import logging
 
 app = Flask(__name__, template_folder = "", static_folder = "resources")
 
 localPath = os.getcwd() + "\\"
+disableLog = False
 
 set = 1
 index = 1
@@ -27,8 +30,7 @@ def main():
     try:
         data["images"] = loadImages()
     except FileNotFoundError:
-        print("No inital images were found! Put some images in suggested path(s).")
-        exit(0)
+        sys.exit("No inital images were found! Put some images in suggested path(s).")
     data["info"] = f"set{set} - {index}"
     return renderHTML("index.html", **data)
 
@@ -70,4 +72,7 @@ def setChange():
     return data
 
 if __name__ == "__main__":
+    if disableLog:
+        log = logging.getLogger("werkzeug")
+        log.setLevel(logging.ERROR)
     app.run()
