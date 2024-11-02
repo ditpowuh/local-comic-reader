@@ -4,8 +4,8 @@
 - flask (tested with 3.0.3)
 
 #### Can be used for comics, webtoons, manga, manhwa, manhua, etc.
-A simple Python web application used to read like any other sites - this is intended for when a comic is given as separate images and not as one single page.
-<br>
+> A simple Python web application used to read like any other sites - this is intended for when a comic (& webtoon, manga, etc.) is given as separate images and not as one single page.
+
 **Designed to be run locally, without requiring an internet connection!**
 
 #### General Formula to Paths
