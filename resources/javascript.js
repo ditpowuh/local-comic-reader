@@ -1,33 +1,35 @@
-updateInProgress = false;
+let updateInProgress = false;
 
 function update(process) {
-  if (updateInProgress === true) {
+  if (updateInProgress) {
     return;
   }
   updateInProgress = true;
-  $.ajax({
-    url: "/" + process,
-    type: "GET",
-    success: function(response) {
-      document.getElementById("info").innerHTML = response.info;
-      document.getElementById("images").innerHTML = response.images;
-      updateInProgress = false;
-    },
-    error: function(error) {
-      console.log(error);
-      updateInProgress = false;
+  fetch("/" + process).then((response) => {
+    if (!response.ok) {
+      throw new Error("Request failed");
     }
+    return response.json();
+  }).then((data) => {
+    document.getElementById("info").innerHTML = data.info;
+    document.getElementById("images").innerHTML = data.images;
+  }).catch((error) => {
+    console.error(error);
+  }).finally(() => {
+    updateInProgress = false;
   });
 }
 
-$(document).ready(function() {
-  $("#previouspage").click(function() {
-    update("previousPage");
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("previouspage").addEventListener("click", () => {
+    update("previousPage")
   });
-  $("#changset").click(function() {
-    update("setChange");
+
+  document.getElementById("changset").addEventListener("click", () => {
+    update("setChange")
   });
-  $("#nextpage").click(function() {
-    update("nextPage");
+
+  document.getElementById("nextpage").addEventListener("click", () => {
+    update("nextPage")
   });
 });
